@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket         = "rezterraformremote"
-    region         = "eu-west-2"
+    bucket         = *CHANGE THIS TO YOUR BUCKET*
+    region         = *CHANGE THIS TO YOUR REGION*
     key            = "Github-Runner-TF/terraform.tfstate"
     encrypt        = true
   }
