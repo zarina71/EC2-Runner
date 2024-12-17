@@ -50,6 +50,19 @@ resource "aws_security_group" "runner-sg" {
     security_groups  = []
   }
 
+  ingress {
+    description      = "Allow access to application from anywhere"
+    from_port        = 3000
+    to_port          = 3000
+    protocol         = "tcp"
+    # Open SonarQube to the internet
+    cidr_blocks      = ["0.0.0.0/0"]  
+    ipv6_cidr_blocks = ["::/0"]
+    self             = false
+    prefix_list_ids  = []
+    security_groups  = []
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
