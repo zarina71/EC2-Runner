@@ -16,6 +16,11 @@ resource "aws_iam_role" "runnerrole" {
 EOF
 }
 
+resource "aws_iam_role_policy_attachment" "admin_access" {
+  role       = aws_iam_role.runnerrole.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
 resource "aws_iam_instance_profile" "runnerinstance-profile" {
   name = "Github-runner-profile"
   role = aws_iam_role.runnerrole.name
